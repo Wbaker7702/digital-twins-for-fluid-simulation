@@ -14,7 +14,7 @@ interface CurveTraceMenuProps {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function throttle(fn: (...args: any[]) => void, delay: number): (...args: any[]) => void {
+function throttle(fn: (...args: any[]) => void, delay: number): (...args: unknown[]) => void {
   let lastCallTime: number | null = null;
   return function (...args: unknown[]) {
     const now = Date.now();
