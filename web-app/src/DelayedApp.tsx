@@ -27,7 +27,7 @@ function DelayedApp() {
           });
         };
         init().catch(console.error);
-      }, []);
+      }, [api]);
 
     return (
         <>
