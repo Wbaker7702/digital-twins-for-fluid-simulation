@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import Draggable from 'react-draggable';
+import Draggable, { DraggableData, DraggableEvent } from 'react-draggable';
 import './slicemenu.css';
 import frontView from '../../img/frontSilh.png';
 import sideView from '../../img/sideSilh.png';
@@ -34,21 +34,21 @@ const SliceMenu: React.FC<SliceMenuProps> = ({
     await api?.request("set_slice_state", { state: section });
   };
 
-  const handleDragXStop = (_event: any, data: any) => {
+  const handleDragXStop = (_event: DraggableEvent, data: DraggableData) => {
     const bounds = [0.0, 180.0];
     const pct = 2.0 * (data.x - bounds[0]) / (bounds[1] - bounds[0]) - 1.0;
     api?.request("set_slice_pos", { pct });
     setXPosition({ x: data.x, y: xPosition.y });
   };
 
-  const handleDragYStop = (_event: any, data: any) => {
+  const handleDragYStop = (_event: DraggableEvent, data: DraggableData) => {
     const bounds = [-15.0, -80.0];
     const pct = 2.0 * (data.y - bounds[0]) / (bounds[1] - bounds[0]) - 1.0;
     api?.request("set_slice_pos", { pct });
     setYPosition({ x: yPosition.x, y: data.y });
   };
 
-  const handleDragZStop = (_event: any, data: any) => {
+  const handleDragZStop = (_event: DraggableEvent, data: DraggableData) => {
     const bounds = [0.0, 244.0];
     const pct = 2.0 * (data.x - bounds[0]) / (bounds[1] - bounds[0]) - 1.0;
     api?.request("set_slice_pos", { pct });

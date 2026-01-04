@@ -14,7 +14,7 @@ const InferenceStatusComponent: React.FC<Props> = ({
   const [message, setMessage] = useState("Waiting for Inference");
 
   useEffect(() => {
-    const handleInferenceComplete = (message: any) => {
+    const handleInferenceComplete = (message: unknown) => {
       //console.log("Received inference complete:", message);
 
       
@@ -50,7 +50,7 @@ const InferenceStatusComponent: React.FC<Props> = ({
     return () => {
       api?.signal("inference_complete", () => {});
     };
-  }, [api, setShowInferenceStatus]);
+  }, [api, setShowInferenceStatus, showStatus]);
 
   if(!showStatus)
   {

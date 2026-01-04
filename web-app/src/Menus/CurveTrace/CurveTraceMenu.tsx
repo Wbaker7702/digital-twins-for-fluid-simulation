@@ -13,7 +13,8 @@ interface CurveTraceMenuProps {
   setSphereRadius: React.Dispatch<React.SetStateAction<number>>;
 }
 
-function throttle(fn: Function, delay: number): Function {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function throttle(fn: (...args: any[]) => void, delay: number): (...args: any[]) => void {
   let lastCallTime: number | null = null;
   return function (...args: unknown[]) {
     const now = Date.now();

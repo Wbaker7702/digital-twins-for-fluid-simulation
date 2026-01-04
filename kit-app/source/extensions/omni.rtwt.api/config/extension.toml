@@ -12,6 +12,9 @@ reloadable = true
 
 
 [dependencies]
+"omni.kit.livestream.messaging" = {}
+"omni.usd" = {}
+"omni.cgns" = {}
 
 [[python.module]]
 name = "omni.rtwt.api"
